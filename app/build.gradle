@@ -17,9 +17,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "boolean", "ENABLE_LOG_PRINTING", "true"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "ENABLE_LOG_PRINTING", "false"
         }
     }
     compileOptions {
@@ -32,5 +36,12 @@ android {
 }
 
 dependencies {
+    // for latest version of activity & other classes
     implementation 'androidx.appcompat:appcompat:1.5.0'
+
+    // for activity lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    // for viewmodels delegate property
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
 }

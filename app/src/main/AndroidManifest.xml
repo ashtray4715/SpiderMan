@@ -4,6 +4,7 @@
     package="com.ashtray.spiderman">
 
     <application
+        android:name=".common.app.GPApp"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,7 +18,7 @@
         android:hardwareAccelerated="true"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".common.ui.GPActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

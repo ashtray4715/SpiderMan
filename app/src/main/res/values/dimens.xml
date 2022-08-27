@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menu_item_card_corner_radius">5dp</dimen>
+
+    <dimen name="global_margin_start_end">5dp</dimen>
+    <dimen name="global_button_text_size">15sp</dimen>
+    <dimen name="global_button_text_size_small">13sp</dimen>
+    <dimen name="global_button_corner_radius">@dimen/menu_item_card_corner_radius</dimen>
+    <dimen name="global_dialog_title_text_size">15sp</dimen>
+    <dimen name="global_dialog_corner_radius">@dimen/menu_item_card_corner_radius</dimen>
+
+    <integer name="animation_start_offset_time">50</integer>
+    <integer name="animation_total_duration">250</integer>
+</resources>
