@@ -5,8 +5,10 @@ import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.RuntimeException
 
+@AndroidEntryPoint
 abstract class GPFragment : Fragment() {
 
     interface CallBacks {

@@ -7,15 +7,21 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.commitNow
 import androidx.lifecycle.lifecycleScope
 import com.ashtray.spiderman.R
-import com.ashtray.spiderman.common.app.GPApp
+import com.ashtray.spiderman.common.app.GPFactory
 import com.ashtray.spiderman.common.helpers.GPLog.d
 import com.ashtray.spiderman.common.helpers.GPSafeRun
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.ashtray.spiderman.common.ui.GPFragment.TransactionType
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
+
+    @Inject
+    lateinit var factory: GPFactory
 
     private val mTag = "GPActivity"
 
@@ -25,7 +31,7 @@ class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
         d(mTag, "onCreate: called")
 
         changeFragment(
-            GPApp.getFactory().getSplashScreenFragment(),
+            factory.getSplashScreenFragment(),
             TransactionType.SINGLE_FRAGMENT
         )
     }

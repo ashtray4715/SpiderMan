@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import com.ashtray.spiderman.R
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment: GPFragment() {
 
     override val mTag = "HomeFragment"

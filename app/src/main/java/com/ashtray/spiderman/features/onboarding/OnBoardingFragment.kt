@@ -5,13 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ashtray.spiderman.R
-import com.ashtray.spiderman.common.app.GPApp
+import com.ashtray.spiderman.common.app.GPSharedPref
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class OnBoardingFragment: GPFragment() {
+
+    @Inject
+    lateinit var sharedPref : GPSharedPref
 
     override val mTag = "OnBoardingFragment"
 
@@ -28,7 +34,8 @@ class OnBoardingFragment: GPFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifeCycleOwnerScope?.launch(Dispatchers.IO) {
-            GPApp.getSharedPref().setOnBoardingPendingStatus(false)
+            sharedPref.setOnBoardingPendingStatus(false)
         }
+
     }
 }

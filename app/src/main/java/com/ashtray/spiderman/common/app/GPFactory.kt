@@ -5,8 +5,11 @@ import com.ashtray.spiderman.common.helpers.GPConst
 import com.ashtray.spiderman.features.home.HomeFragment
 import com.ashtray.spiderman.features.onboarding.OnBoardingFragment
 import com.ashtray.spiderman.features.splash.SplashScreenFragment
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class GPFactory {
+@Singleton
+class GPFactory @Inject constructor() {
     fun getSplashScreenFragment() = SplashScreenFragment()
 
     fun getOnBoardingFragment(isFromSplashFragment: Boolean): OnBoardingFragment {

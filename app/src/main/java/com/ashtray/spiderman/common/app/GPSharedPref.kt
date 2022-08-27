@@ -2,16 +2,23 @@ package com.ashtray.spiderman.common.app
 
 import com.ashtray.spiderman.common.helpers.GPLog.e
 import android.annotation.SuppressLint
-import android.content.SharedPreferences
+import android.app.Application
+import android.content.Context
 import android.util.Base64
 import com.ashtray.spiderman.common.helpers.GPConst
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 import java.lang.Exception
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class GPSharedPref(private val sharedPrefObj: SharedPreferences) {
+@Singleton
+class GPSharedPref @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
 
     private val mTag = "GPSharedPref"
 
@@ -27,7 +34,10 @@ class GPSharedPref(private val sharedPrefObj: SharedPreferences) {
             serializer.writeObject(value)
 
             //Insert serialized object into shared preferences
-            sharedPrefObj.edit().apply {
+            context.getSharedPreferences(
+                GPConst.SHARED_PREF_FILE_NAME,
+                Application.MODE_PRIVATE
+            ).edit().apply {
                 putString(key, Base64.encodeToString(sData.toByteArray(), Base64.DEFAULT))
                 commit()
             }
@@ -44,7 +54,10 @@ class GPSharedPref(private val sharedPrefObj: SharedPreferences) {
     private fun getData(key: String): Any? {
         var ret: Any? = null
         try {
-            sharedPrefObj.getString(key, null) ?. let { sData ->
+            context.getSharedPreferences(
+                GPConst.SHARED_PREF_FILE_NAME,
+                Application.MODE_PRIVATE
+            ).getString(key, null)?.let { sData ->
                 val input = ByteArrayInputStream(Base64.decode(sData, Base64.DEFAULT))
                 val inputStream = ObjectInputStream(input)
                 ret = inputStream.readObject()
@@ -56,7 +69,7 @@ class GPSharedPref(private val sharedPrefObj: SharedPreferences) {
         return ret
     }
 
-    fun getOnBoardingPendingStatus() : Boolean {
+    fun getOnBoardingPendingStatus(): Boolean {
         val retValue = getData(GPConst.SP_KEY_ON_BOARDING_STATUS) as Boolean?
         return retValue ?: true
     }

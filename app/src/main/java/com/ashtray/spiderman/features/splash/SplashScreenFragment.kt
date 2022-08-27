@@ -6,15 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ashtray.spiderman.R
-import com.ashtray.spiderman.common.app.GPApp
-import com.ashtray.spiderman.common.app.GPApp.Companion.getSharedPref
+import com.ashtray.spiderman.common.app.GPFactory
+import com.ashtray.spiderman.common.app.GPSharedPref
 import com.ashtray.spiderman.common.helpers.GPLog.d
 import com.ashtray.spiderman.common.ui.GPFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashScreenFragment : GPFragment() {
+
+    @Inject
+    lateinit var factory: GPFactory
+
+    @Inject
+    lateinit var sharedPref : GPSharedPref
 
     override val mTag = "SplashScreenFragment"
 
@@ -46,9 +55,9 @@ class SplashScreenFragment : GPFragment() {
     }
 
     private fun openHomePageOrOnBoardingScreen() {
-        val toFragment = when(getSharedPref().getOnBoardingPendingStatus()) {
-            true -> GPApp.getFactory().getOnBoardingFragment(true)
-            else -> GPApp.getFactory().getHomeFragment()
+        val toFragment = when(sharedPref.getOnBoardingPendingStatus()) {
+            true -> factory.getOnBoardingFragment(true)
+            else -> factory.getHomeFragment()
         }
         changeFragment(toFragment, TransactionType.SINGLE_FRAGMENT)
     }
