@@ -2,6 +2,7 @@ package com.ashtray.spiderman.common.app
 
 import android.os.Bundle
 import com.ashtray.spiderman.common.helpers.GPConst
+import com.ashtray.spiderman.features.addgame.AddGameFragment
 import com.ashtray.spiderman.features.home.HomeFragment
 import com.ashtray.spiderman.features.onboarding.OnBoardingFragment
 import com.ashtray.spiderman.features.splash.SplashScreenFragment
@@ -21,4 +22,6 @@ class GPFactory @Inject constructor() {
     }
 
     fun getHomeFragment() = HomeFragment()
+
+    fun getAddGameFragment() = AddGameFragment()
 }

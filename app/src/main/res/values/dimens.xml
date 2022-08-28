@@ -17,4 +17,17 @@
     <item name="single_game_info_sub_items_alpha" format="float" type="dimen">0.5</item>
     <item name="game_list_empty_text_alpha" format="float" type="dimen">0.9</item>
 
+    <!-- add game fragment -->
+    <item name="add_game_input_title_alpha" format="float" type="dimen">1.0</item>
+    <item name="add_game_input_value_alpha" format="float" type="dimen">1.0</item>
+    <dimen name="add_game_input_title_text_size">15sp</dimen>
+    <dimen name="add_game_input_title_padding_start">5dp</dimen>
+    <dimen name="add_game_input_title_padding_end">5dp</dimen>
+    <dimen name="add_game_input_title_padding_top_first_item">15dp</dimen>
+    <dimen name="add_game_input_title_padding_top">15dp</dimen>
+    <dimen name="add_game_input_title_padding_bottom">5dp</dimen>
+    <dimen name="add_game_input_value_text_size">15sp</dimen>
+    <dimen name="add_game_radio_margin_top">15dp</dimen>
+    <dimen name="add_game_radio_margin_bottom">10dp</dimen>
+
 </resources>

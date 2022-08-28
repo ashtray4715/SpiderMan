@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ashtray.spiderman.common.app.GPFactory
 import com.ashtray.spiderman.common.helpers.GPLog.d
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.database.GameEntity
@@ -13,9 +14,13 @@ import com.ashtray.spiderman.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment: GPFragment() {
+
+    @Inject
+    lateinit var factory: GPFactory
 
     private val viewModel by viewModels<HomeViewModel>()
 
@@ -89,21 +94,11 @@ class HomeFragment: GPFragment() {
     }
 
     private fun handleAddGameMenuClicked() {
-        d(mTag, "handle add game menu clicked")
         viewLifeCycleOwnerScope?.launch {
-            viewModel.insertNewGame(
-                GameEntity(
-                    gameId = System.currentTimeMillis(),
-                    gameName = "physics",
-                    totalPlayer = 3,
-                    playerName1 = "gobinda",
-                    playerName2 = "joy",
-                    playerName3 = "mondol",
-                    targetScore = 100,
-                    notifyOnTargetReached = false
-                )
+            changeFragment(
+                fragment = factory.getAddGameFragment(),
+                transactionType = TransactionType.ADD_FRAGMENT
             )
-            showToastMessage("added successfully")
         }
     }
 
