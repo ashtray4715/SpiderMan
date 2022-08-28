@@ -88,18 +88,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/card_background_non_clickable"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
                     android:padding="8dp"
+                    android:weightSum="4"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp">
 
                     <RadioButton
                         android:id="@+id/radio_player_count_3"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:checked="false"
-                        android:text="3 players"
+                        android:text="3"
                         android:textSize="@dimen/add_game_input_value_text_size"
                         android:textColor="@color/colorAccent"
                         android:alpha="@dimen/add_game_input_value_alpha"
@@ -108,11 +109,11 @@
 
                     <RadioButton
                         android:id="@+id/radio_player_count_4"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:checked="false"
-                        android:text="4 players"
+                        android:text="4"
                         android:textSize="@dimen/add_game_input_value_text_size"
                         android:textColor="@color/colorAccent"
                         android:alpha="@dimen/add_game_input_value_alpha"
@@ -121,11 +122,11 @@
 
                     <RadioButton
                         android:id="@+id/radio_player_count_5"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:checked="false"
-                        android:text="5 players"
+                        android:text="5"
                         android:textSize="@dimen/add_game_input_value_text_size"
                         android:textColor="@color/colorAccent"
                         android:alpha="@dimen/add_game_input_value_alpha"
@@ -134,11 +135,11 @@
 
                     <RadioButton
                         android:id="@+id/radio_player_count_6"
-                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:checked="false"
-                        android:text="6 players"
+                        android:text="6"
                         android:textSize="@dimen/add_game_input_value_text_size"
                         android:textColor="@color/colorAccent"
                         android:alpha="@dimen/add_game_input_value_alpha"
@@ -147,21 +148,48 @@
 
                 </LinearLayout>
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Final target score ?"
-                    android:textSize="@dimen/add_game_input_title_text_size"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorAccent"
-                    android:alpha="@dimen/add_game_input_title_alpha"
-                    android:paddingStart="@dimen/add_game_input_title_padding_start"
-                    android:paddingEnd="@dimen/add_game_input_title_padding_end"
-                    android:paddingTop="@dimen/add_game_input_title_padding_top"
-                    android:paddingBottom="@dimen/add_game_input_title_padding_bottom"
-                    android:layout_marginStart="@dimen/global_margin_start_end"
-                    android:layout_marginEnd="@dimen/global_margin_start_end"
-                    tools:ignore="HardcodedText" />
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_toStartOf="@id/checkbox_notify_final_target"
+                        android:alpha="@dimen/add_game_input_title_alpha"
+                        android:text="Final target score ?"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/add_game_input_title_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/global_margin_start_end"
+                        android:layout_marginEnd="@dimen/global_margin_start_end"
+                        android:paddingStart="@dimen/add_game_input_title_padding_start"
+                        android:paddingTop="@dimen/add_game_input_title_padding_top"
+                        android:paddingEnd="@dimen/add_game_input_title_padding_end"
+                        android:paddingBottom="@dimen/add_game_input_title_padding_bottom"
+                        tools:ignore="HardcodedText" />
+
+                    <CheckBox
+                        android:id="@+id/checkbox_notify_final_target"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="@dimen/add_game_input_title_alpha"
+                        android:checked="true"
+                        android:text="Noti?"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/add_game_input_title_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/global_margin_start_end"
+                        android:layout_marginEnd="@dimen/global_margin_start_end"
+                        android:paddingStart="@dimen/add_game_input_title_padding_start"
+                        android:paddingEnd="@dimen/add_game_input_title_padding_end"
+                        android:theme="@style/NotifyCheckBoxStyle"
+                        tools:ignore="HardcodedText" />
+
+                </RelativeLayout>
 
                 <EditText
                     android:id="@+id/edit_text_final_target_score"
@@ -171,7 +199,7 @@
                     android:background="@drawable/card_background_non_clickable"
                     android:hint="Enter value here"
                     android:textColorHint="@color/colorAccent_light_version"
-                    android:text="1000"
+                    android:text="50"
                     android:textSize="@dimen/add_game_input_value_text_size"
                     android:textColor="@color/colorAccent"
                     android:alpha="@dimen/add_game_input_value_alpha"
@@ -322,23 +350,6 @@
                         tools:ignore="HardcodedText,LabelFor" />
 
                 </LinearLayout>
-
-                <CheckBox
-                    android:id="@+id/checkbox_notify_final_target"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:theme="@style/NotifyCheckBoxStyle"
-                    android:checked="true"
-                    android:text="Get notified when final target reached ?"
-                    android:textSize="@dimen/add_game_input_title_text_size"
-                    android:textStyle="bold"
-                    android:textColor="@color/colorAccent"
-                    android:alpha="@dimen/add_game_input_title_alpha"
-                    android:layout_marginStart="@dimen/global_margin_start_end"
-                    android:layout_marginEnd="@dimen/global_margin_start_end"
-                    android:layout_marginTop="@dimen/add_game_radio_margin_top"
-                    android:layout_marginBottom="@dimen/add_game_radio_margin_bottom"
-                    tools:ignore="HardcodedText" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
