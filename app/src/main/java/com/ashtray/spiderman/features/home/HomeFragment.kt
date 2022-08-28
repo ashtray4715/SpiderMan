@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ashtray.spiderman.common.app.GPFactory
-import com.ashtray.spiderman.common.helpers.GPLog.d
+import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.database.GameEntity
 import com.ashtray.spiderman.databinding.FragmentHomeBinding
@@ -36,15 +36,14 @@ class HomeFragment: GPFragment() {
         }
     }
 
-    override val mTag = "HomeFragment"
-
+    override val log = GPLog("HomeFragment")
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        d(mTag, "onCreateView: called")
+        log.d("onCreateView: called")
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         _homeListAdapter = HomeListAdapter(context, viewHolderCB)
@@ -76,11 +75,11 @@ class HomeFragment: GPFragment() {
     }
 
     private fun handleExploreFeatureMenuClicked() {
-        d(mTag, "handle explore feature menu clicked")
+        log.d("handle explore feature menu clicked")
     }
 
     private fun handleSettingsMenuClicked() {
-        d(mTag, "handle settings menu clicked")
+        log.d("handle settings menu clicked")
     }
 
     private fun handleGameListUpdate(gameEntities: List<GameEntity>?) {
@@ -103,6 +102,6 @@ class HomeFragment: GPFragment() {
     }
 
     private fun openGameDetailsFragment(position: Int) {
-        d(mTag, "open game details fragment $position")
+        log.d("open game details fragment $position")
     }
 }

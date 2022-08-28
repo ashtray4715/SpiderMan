@@ -1,10 +1,10 @@
 package com.ashtray.spiderman.common.ui
 
-import com.ashtray.spiderman.common.helpers.GPLog.e
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.ashtray.spiderman.common.helpers.GPLog
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.RuntimeException
 
@@ -43,7 +43,7 @@ abstract class GPFragment : Fragment() {
         super.onDetach()
     }
 
-    abstract val mTag: String
+    abstract val log: GPLog
 
     open fun handleBackButtonPressed(): Boolean {
         return false
@@ -64,7 +64,7 @@ abstract class GPFragment : Fragment() {
             val immService =  service as InputMethodManager?
             immService?.hideSoftInputFromWindow(wToken, 0)
         } catch (e: Exception) {
-            e(mTag, "exception occurs while closing soft keyboard")
+            log.e("exception occurs while closing soft keyboard")
         }
     }
 

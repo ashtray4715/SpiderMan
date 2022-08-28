@@ -1,11 +1,11 @@
 package com.ashtray.spiderman.common.app
 
-import com.ashtray.spiderman.common.helpers.GPLog.e
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import android.util.Base64
 import com.ashtray.spiderman.common.helpers.GPConst
+import com.ashtray.spiderman.common.helpers.GPLog
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -20,7 +20,7 @@ class GPSharedPref @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    private val mTag = "GPSharedPref"
+    private val log = GPLog("GPSharedPref")
 
     /**
      * This setData function can insert any kind of object,
@@ -42,7 +42,7 @@ class GPSharedPref @Inject constructor(
                 commit()
             }
         } catch (e: Exception) {
-            e(mTag, "set value failed [key $key]")
+            log.e("set value failed [key $key]")
             e.printStackTrace()
         }
     }
@@ -63,7 +63,7 @@ class GPSharedPref @Inject constructor(
                 ret = inputStream.readObject()
             }
         } catch (e: Exception) {
-            e(mTag, "get value failed [key $key]")
+            log.e("get value failed [key $key]")
             e.printStackTrace()
         }
         return ret

@@ -8,7 +8,7 @@ import androidx.fragment.app.commitNow
 import androidx.lifecycle.lifecycleScope
 import com.ashtray.spiderman.R
 import com.ashtray.spiderman.common.app.GPFactory
-import com.ashtray.spiderman.common.helpers.GPLog.d
+import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.helpers.GPSafeRun
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,12 +23,12 @@ class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
     @Inject
     lateinit var factory: GPFactory
 
-    private val mTag = "GPActivity"
+    private val log = GPLog("GPActivity")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gp)
-        d(mTag, "onCreate: called")
+        log.d("onCreate: called")
 
         changeFragment(
             factory.getSplashScreenFragment(),
@@ -40,7 +40,7 @@ class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
         val unRef = supportFragmentManager.findFragmentById(R.id.fragment_container)
         val fragment = unRef as GPFragment?
         if (fragment == null || !fragment.handleBackButtonPressed()) {
-            d(mTag, "fragment can't handle back press [CLOSING_APP]")
+            log.d("fragment can't handle back press [CLOSING_APP]")
             super.onBackPressed()
         }
     }
@@ -62,21 +62,21 @@ class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
     }
 
     private suspend fun changeFragmentAdd(fragment: GPFragment) {
-        d(mTag, "changeFragment: add, ${fragment.mTag}")
+        log.d("changeFragment: add, ${fragment.log.tag}")
         withContext(Dispatchers.Main) {
-            GPSafeRun(mTag) {
+            GPSafeRun(log) {
                 supportFragmentManager.commit {
                     setCustomAnimations(R.anim.enter_right, R.anim.exit_left)
-                    add(R.id.fragment_container, fragment, fragment.mTag)
+                    add(R.id.fragment_container, fragment, fragment.log.tag)
                 }
             }
         }
     }
 
     private suspend fun changeFragmentRemove(fragment: GPFragment) {
-        d(mTag, "changeFragment: remove, ${fragment.mTag}")
+        log.d("changeFragment: remove, ${fragment.log.tag}")
         withContext(Dispatchers.Main) {
-            GPSafeRun(mTag) {
+            GPSafeRun(log) {
                 supportFragmentManager.commit {
                     setCustomAnimations(R.anim.enter_left, R.anim.exit_right)
                     remove(fragment)
@@ -86,19 +86,17 @@ class GPActivity : AppCompatActivity(), GPFragment.CallBacks {
     }
 
     private suspend fun changeFragmentSingle(fragment: GPFragment) {
-        d(mTag, "changeFragment: clear_all_and_add_new, ${fragment.mTag}")
+        log.d("changeFragment: clear_all_and_add_new, ${fragment.log.tag}")
         withContext(Dispatchers.Main) {
-            GPSafeRun(mTag) {
+            GPSafeRun(log) {
                 for (previousFragment in supportFragmentManager.fragments) {
                     supportFragmentManager.commitNow { remove(previousFragment) }
                 }
                 supportFragmentManager.commit {
                     setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-                    add(R.id.fragment_container, fragment, fragment.mTag)
+                    add(R.id.fragment_container, fragment, fragment.log.tag)
                 }
             }
         }
     }
-
-    
 }

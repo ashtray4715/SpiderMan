@@ -19,14 +19,14 @@ class OnBoardingFragment: GPFragment() {
     @Inject
     lateinit var sharedPref : GPSharedPref
 
-    override val mTag = "OnBoardingFragment"
+    override val log = GPLog("OnBoardingFragment")
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        GPLog.d(mTag, "onCreateView: called")
+        log.d("onCreateView: called")
         return inflater.inflate(R.layout.fragment_onboarding, container, false)
     }
 

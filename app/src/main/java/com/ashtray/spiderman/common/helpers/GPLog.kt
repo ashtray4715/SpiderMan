@@ -3,18 +3,19 @@ package com.ashtray.spiderman.common.helpers
 import android.util.Log
 import com.ashtray.spiderman.BuildConfig
 
-object GPLog {
-    private const val TAG = "[mg]"
+class GPLog(val tag: String) {
 
-    fun d(tag: String, message: String?) {
+    private val globalTag = "[mg]"
+
+    fun d(message: String?) {
         if (BuildConfig.ENABLE_LOG_PRINTING) {
-            Log.d("$TAG[$tag]", message ?: "")
+            Log.d("$globalTag[$tag]", message ?: "")
         }
     }
 
-    fun e(tag: String, message: String?) {
+    fun e(message: String?) {
         if (BuildConfig.ENABLE_LOG_PRINTING) {
-            Log.e("$TAG[$tag]", message ?: "")
+            Log.e("$globalTag[$tag]", message ?: "")
         }
     }
 }

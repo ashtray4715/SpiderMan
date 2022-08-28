@@ -8,14 +8,12 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import com.ashtray.spiderman.common.helpers.GPLog
 import java.lang.Exception
-import com.ashtray.spiderman.common.helpers.GPLog.e
 
 class GPActionBar(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
 
-    companion object {
-        private const val TAG = "GPActionBar"
-    }
+    private val log = GPLog("GPActionBar")
 
     private var backListener: OnClickListener? = null
     private var menuListener: OnClickListener? = null
@@ -87,7 +85,7 @@ class GPActionBar(context: Context, attrs: AttributeSet) : RelativeLayout(contex
                 }
             }
         } catch (e: Exception) {
-            e(TAG, "drawComponentsForTheFirstTime: problem occurs")
+            log.e("drawComponentsForTheFirstTime: problem occurs")
             e.printStackTrace()
         } finally {
             typedArray.recycle()

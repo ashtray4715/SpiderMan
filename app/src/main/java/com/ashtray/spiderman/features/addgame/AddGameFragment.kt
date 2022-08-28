@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.ashtray.spiderman.common.helpers.GPConst
+import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.database.GameEntity
 import com.ashtray.spiderman.databinding.FragmentAddGameBinding
@@ -19,7 +20,7 @@ class AddGameFragment: GPFragment() {
 
     private val viewModel by viewModels<AddGameViewModel>()
 
-    override val mTag = "AddGameFragment"
+    override val log = GPLog("AddGameFragment")
 
     override fun onCreateView(
         inflater: LayoutInflater,

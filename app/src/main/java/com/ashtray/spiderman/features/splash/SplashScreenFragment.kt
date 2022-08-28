@@ -10,7 +10,6 @@ import com.ashtray.spiderman.R
 import com.ashtray.spiderman.common.app.GPFactory
 import com.ashtray.spiderman.common.app.GPSharedPref
 import com.ashtray.spiderman.common.helpers.GPLog
-import com.ashtray.spiderman.common.helpers.GPLog.d
 import com.ashtray.spiderman.common.ui.GPFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -29,14 +28,14 @@ class SplashScreenFragment : GPFragment() {
     @Inject
     lateinit var sharedPref : GPSharedPref
 
-    override val mTag = "SplashScreenFragment"
+    override val log = GPLog("SplashScreenFragment")
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        d(mTag, "onCreateView: called ${viewModel.repository.dao.hashCode()}")
+        log.d("onCreateView: called ${viewModel.repository.dao.hashCode()}")
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)
     }
 
