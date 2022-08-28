@@ -9,4 +9,7 @@ object GPConst {
 
     /* Shared preference key*/
     const val SP_KEY_ON_BOARDING_STATUS = "on_boarding_status"
+
+    /* Room database*/
+    const val APP_DATABASE_NAME = "spiderman_db"
 }

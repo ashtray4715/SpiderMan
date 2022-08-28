@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <TextView android:id="@+id/text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="home"
         android:textColor="@color/colorAccent"
         android:layout_centerInParent="true"
+        android:padding="15dp"
+        android:background="@color/colorAccent_light_version"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>

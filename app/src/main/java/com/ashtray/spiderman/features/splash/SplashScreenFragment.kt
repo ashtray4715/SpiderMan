@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.ashtray.spiderman.R
 import com.ashtray.spiderman.common.app.GPFactory
 import com.ashtray.spiderman.common.app.GPSharedPref
+import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.helpers.GPLog.d
 import com.ashtray.spiderman.common.ui.GPFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +20,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 @SuppressLint("CustomSplashScreen")
 class SplashScreenFragment : GPFragment() {
+
+    private val viewModel by viewModels<SplashViewModel>()
 
     @Inject
     lateinit var factory: GPFactory
@@ -32,7 +36,7 @@ class SplashScreenFragment : GPFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        d(mTag, "onCreateView: called")
+        d(mTag, "onCreateView: called ${viewModel.repository.dao.hashCode()}")
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)
     }
 
