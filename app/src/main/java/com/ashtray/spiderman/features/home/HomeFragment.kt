@@ -57,6 +57,7 @@ class HomeFragment: GPFragment() {
 
         binding.rvGameList.layoutManager = LinearLayoutManager(context)
         binding.rvGameList.adapter = homeListAdapter
+        binding.emptyGameListView.visibility = View.GONE
 
         viewModel.getAllTheGameEntities().observe(viewLifecycleOwner) { mList ->
             viewLifeCycleOwnerScope?.launch(Dispatchers.Main) {
