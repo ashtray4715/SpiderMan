@@ -11,4 +11,10 @@
 
     <integer name="animation_start_offset_time">50</integer>
     <integer name="animation_total_duration">250</integer>
+
+    <!-- home fragment -->
+    <item name="single_game_info_title_alpha" format="float" type="dimen">1.0</item>
+    <item name="single_game_info_sub_items_alpha" format="float" type="dimen">0.5</item>
+    <item name="game_list_empty_text_alpha" format="float" type="dimen">0.9</item>
+
 </resources>

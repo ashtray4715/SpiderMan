@@ -1,5 +1,6 @@
 package com.ashtray.spiderman.features.home
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.ashtray.spiderman.common.app.GPRepo
@@ -9,13 +10,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    val repository: GPRepo
-): ViewModel() {
+    private val repository: GPRepo
+) : ViewModel() {
     suspend fun insertNewGame(entity: GameEntity) {
         repository.insertNewGame(entity)
     }
 
-    fun getAllTheGameEntities(): LiveData<List<GameEntity>> {
+    fun getAllTheGameEntities(): LiveData<List<GameEntity>?> {
         return repository.getAllTheGameEntities()
     }
 }

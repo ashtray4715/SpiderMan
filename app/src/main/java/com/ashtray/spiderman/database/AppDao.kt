@@ -9,7 +9,7 @@ import androidx.room.Query
 interface AppDao {
     /* SELECT QUERIES */
     @Query("SELECT * FROM game_table")
-    fun getAllTheGameEntities(): LiveData<List<GameEntity>>
+    fun getAllTheGameEntities(): LiveData<List<GameEntity>?>
 
     /* INSERT QUERIES*/
     @Insert

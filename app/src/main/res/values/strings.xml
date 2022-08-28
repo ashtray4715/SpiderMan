@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SpiderMan</string>
+    <string name="useless">useless</string>
+
+    <!-- home fragment -->
+    <string name="game_list_is_empty_message">Game list is empty</string>
+    <string name="text_add_new_game">Add new game</string>
+    <string name="text_explore_features">Explore features</string>
 </resources>
