@@ -15,7 +15,6 @@ data class GameEntity(
     val playerName3: String,
     val playerName4: String = "",
     val playerName5: String = "",
-    val playerName6: String = "",
     val targetScore: Int,
     val notifyOnTargetReached: Boolean
 )

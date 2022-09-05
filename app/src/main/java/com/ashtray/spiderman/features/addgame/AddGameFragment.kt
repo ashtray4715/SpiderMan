@@ -42,7 +42,6 @@ class AddGameFragment : GPFragment() {
         binding.radioPlayerCount3.setOnClickListener { selectedPlayerCount(3) }
         binding.radioPlayerCount4.setOnClickListener { selectedPlayerCount(4) }
         binding.radioPlayerCount5.setOnClickListener { selectedPlayerCount(5) }
-        binding.radioPlayerCount6.setOnClickListener { selectedPlayerCount(6) }
         binding.saveButton.setCustomClickListener { addButtonPressed() }
         binding.cancelButton.setCustomClickListener { handleBackButtonPressed() }
         binding.actionBar.setBackListener { handleBackButtonPressed() }
@@ -68,16 +67,11 @@ class AddGameFragment : GPFragment() {
             binding.radioPlayerCount3.isChecked = (count == 3)
             binding.radioPlayerCount4.isChecked = (count == 4)
             binding.radioPlayerCount5.isChecked = (count == 5)
-            binding.radioPlayerCount6.isChecked = (count == 6)
             binding.editTextPlayerName4.visibility = when (4 <= count) {
                 true -> View.VISIBLE
                 else -> View.GONE
             }
             binding.editTextPlayerName5.visibility = when (5 <= count) {
-                true -> View.VISIBLE
-                else -> View.GONE
-            }
-            binding.editTextPlayerName6.visibility = when (6 <= count) {
                 true -> View.VISIBLE
                 else -> View.GONE
             }
@@ -102,7 +96,6 @@ class AddGameFragment : GPFragment() {
                 binding.radioPlayerCount3.isChecked -> 3
                 binding.radioPlayerCount4.isChecked -> 4
                 binding.radioPlayerCount5.isChecked -> 5
-                binding.radioPlayerCount6.isChecked -> 6
                 else -> 4
             }
             val mPlayerNames = getPlayerNameFromEditTexts(mPlayerCount)
@@ -130,7 +123,6 @@ class AddGameFragment : GPFragment() {
                 playerName3 = mPlayerNames[2],
                 playerName4 = mPlayerNames[3],
                 playerName5 = mPlayerNames[4],
-                playerName6 = mPlayerNames[5],
                 targetScore = mFinalTargetScore,
                 notifyOnTargetReached = binding.checkboxNotifyFinalTarget.isChecked
             )
@@ -156,10 +148,6 @@ class AddGameFragment : GPFragment() {
         }
         when (5 <= playerCount) {
             true -> playerName.add(binding.editTextPlayerName5.text.toString().trim())
-            false -> playerName.add("")
-        }
-        when (6 <= playerCount) {
-            true -> playerName.add(binding.editTextPlayerName6.text.toString().trim())
             false -> playerName.add("")
         }
         return playerName.toTypedArray()
