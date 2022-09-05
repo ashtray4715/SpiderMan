@@ -13,7 +13,7 @@ import com.ashtray.spiderman.databinding.FragmentAddGameBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AddGameFragment: GPFragment() {
+class AddGameFragment : GPFragment() {
 
     private var _binding: FragmentAddGameBinding? = null
     private val binding get() = _binding!!
@@ -43,8 +43,8 @@ class AddGameFragment: GPFragment() {
         binding.radioPlayerCount4.setOnClickListener { selectedPlayerCount(4) }
         binding.radioPlayerCount5.setOnClickListener { selectedPlayerCount(5) }
         binding.radioPlayerCount6.setOnClickListener { selectedPlayerCount(6) }
-        binding.saveButton.setOnClickListener { addButtonPressed() }
-        binding.cancelButton.setOnClickListener { handleBackButtonPressed() }
+        binding.saveButton.setCustomClickListener { addButtonPressed() }
+        binding.cancelButton.setCustomClickListener { handleBackButtonPressed() }
         binding.actionBar.setBackListener { handleBackButtonPressed() }
         binding.actionBar.setMenuListener { addButtonPressed() }
 
@@ -69,15 +69,15 @@ class AddGameFragment: GPFragment() {
             binding.radioPlayerCount4.isChecked = (count == 4)
             binding.radioPlayerCount5.isChecked = (count == 5)
             binding.radioPlayerCount6.isChecked = (count == 6)
-            binding.editTextPlayerName4.visibility = when(4 <= count) {
+            binding.editTextPlayerName4.visibility = when (4 <= count) {
                 true -> View.VISIBLE
                 else -> View.GONE
             }
-            binding.editTextPlayerName5.visibility = when(5 <= count) {
+            binding.editTextPlayerName5.visibility = when (5 <= count) {
                 true -> View.VISIBLE
                 else -> View.GONE
             }
-            binding.editTextPlayerName6.visibility = when(6 <= count) {
+            binding.editTextPlayerName6.visibility = when (6 <= count) {
                 true -> View.VISIBLE
                 else -> View.GONE
             }

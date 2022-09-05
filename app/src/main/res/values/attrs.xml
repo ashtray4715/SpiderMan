@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="GPActionBar">
-        <attr name="gp_actionbar_title" format="string"/>
-        <attr name="gp_actionbar_back_btn_visibility" format="boolean"/>
-        <attr name="gp_actionbar_back_btn_icon" format="reference"/>
-        <attr name="gp_menu_item_icon" format="reference"/>
-        <attr name="gp_menu_item_visibility" format="boolean"/>
+        <attr name="gp_actionbar_title" format="string" />
+        <attr name="gp_actionbar_back_btn_visibility" format="boolean" />
+        <attr name="gp_actionbar_back_btn_icon" format="reference" />
+        <attr name="gp_menu_item_icon" format="reference" />
+        <attr name="gp_menu_item_visibility" format="boolean" />
     </declare-styleable>
     <declare-styleable name="GPMenuTitle">
-        <attr name="mt_text" format="string"/>
+        <attr name="mt_text" format="string" />
+    </declare-styleable>
+    <declare-styleable name="GPITButton">
+        <attr name="itb_text" format="string" />
+        <attr name="itb_icon" format="reference" />
+        <attr name="itb_background" format="enum">
+            <enum name="vertical_first" value="0" />
+            <enum name="vertical_middle" value="1" />
+            <enum name="vertical_last" value="2" />
+            <enum name="horizontal_first" value="3" />
+            <enum name="horizontal_middle" value="4" />
+            <enum name="horizontal_last" value="5" />
+        </attr>
     </declare-styleable>
 </resources>
