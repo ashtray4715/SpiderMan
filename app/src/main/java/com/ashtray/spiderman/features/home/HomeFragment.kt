@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment: GPFragment() {
+class HomeFragment : GPFragment() {
 
     @Inject
     lateinit var factory: GPFactory
@@ -70,16 +70,19 @@ class HomeFragment: GPFragment() {
         }
         binding.actionBar.setMenuListener { handleAddGameMenuClicked() }
         binding.actionBar.setBackListener { handleSettingsMenuClicked() }
-        binding.tvAddNewGame.setOnClickListener { handleAddGameMenuClicked() }
-        binding.tvExploreFeatures.setOnClickListener { handleExploreFeatureMenuClicked() }
+        binding.addGameButton.setCustomClickListener { handleAddGameMenuClicked() }
+        binding.featuresButton.setCustomClickListener { handleExploreFeatureMenuClicked() }
+        binding.moreButton.setCustomClickListener { handleSettingsMenuClicked() }
     }
 
     private fun handleExploreFeatureMenuClicked() {
         log.d("handle explore feature menu clicked")
+        showToastMessage("explore feature")
     }
 
     private fun handleSettingsMenuClicked() {
         log.d("handle settings menu clicked")
+        showToastMessage("settings menu")
     }
 
     private fun handleGameListUpdate(gameEntities: List<GameEntity>?) {
