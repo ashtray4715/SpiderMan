@@ -29,5 +29,17 @@
     <dimen name="add_game_input_value_text_size">15sp</dimen>
     <dimen name="add_game_radio_margin_top">15dp</dimen>
     <dimen name="add_game_radio_margin_bottom">10dp</dimen>
+    <dimen name="game_details_item_title_text_size">15sp</dimen>
+    <dimen name="game_details_item_title_padding_start">5dp</dimen>
+    <dimen name="game_details_item_title_padding_end">5dp</dimen>
+    <dimen name="game_details_item_title_padding_top_first_item">15dp</dimen>
+    <dimen name="game_details_item_title_padding_bottom">5dp</dimen>
+    <dimen name="game_details_sub_items_text_size">13sp</dimen>
+    <dimen name="game_details_item_title_padding_top">15dp</dimen>
+
+    <!-- game details fragment -->
+    <item name="game_details_item_title_alpha" format="float" type="dimen">1.0</item>
+    <item name="game_details_item_value_alpha" format="float" type="dimen">1.0</item>
+    <item name="target_and_other_info_items_alpha" type="dimen" format="float">0.8</item>
 
 </resources>

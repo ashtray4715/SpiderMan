@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ashtray.spiderman.features.details.GameDetailsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/activity_background_default">
+
+        <com.ashtray.spiderman.common.ui.GPActionBar
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:gp_actionbar_back_btn_visibility="true"
+            app:gp_actionbar_title="Game details"
+            app:gp_menu_item_icon="@drawable/ic_menu_add"
+            app:gp_menu_item_visibility="true" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/action_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.ashtray.spiderman.common.ui.GPMenuTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    app:mt_text="Target and other info"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/card_background_non_clickable"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/text_view_total_target_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="start"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_total_round_played"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="end"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/text_view_round_max_score"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="start"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_total_player_count"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="end"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/text_view_target_notification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="start"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_round_notification"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:alpha="@dimen/target_and_other_info_items_alpha"
+                            android:gravity="end"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.ashtray.spiderman.common.ui.GPMenuTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    app:mt_text="Scoreboard"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/card_background_non_clickable"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/text_view_player_position_1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_name_1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_score_1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/text_view_player_position_2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_name_2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_score_2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/text_view_player_position_3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_name_3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_score_3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/text_view_player_position_4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_name_4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_score_4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:id="@+id/text_view_player_position_5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_name_5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                        <TextView
+                            android:id="@+id/text_view_player_score_5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/text_loading"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/game_details_sub_items_text_size" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/ad_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/card_background_non_clickable"
+                    android:visibility="gone" />
+
+                <com.ashtray.spiderman.common.ui.GPMenuTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    app:mt_text="Point table"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/group_item_vertical_first_card_bg"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:id="@+id/text_view_player_name_pt1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_name_pt2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_name_pt3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_name_pt4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_name_pt5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TableLayout
+                    android:id="@+id/table_layout_score_list_p5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@null" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/group_item_vertical_last_card_bg"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:id="@+id/text_view_player_total_score_pt1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_total_score_pt2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_total_score_pt3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_total_score_pt4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_player_total_score_pt5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="@string/text_loading"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <com.ashtray.spiderman.common.ui.GPMenuTitle
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    app:mt_text="Options"
+                    tools:ignore="HardcodedText" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="1dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tv_option_add_score"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/card_background_clickable"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Add score"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_option_delete_score"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/card_background_clickable"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Delete score"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/tv_option_edit_game"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/card_background_clickable"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Edit game"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_option_delete_game"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/card_background_clickable"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:text="Delete game"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/game_details_sub_items_text_size"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</layout>

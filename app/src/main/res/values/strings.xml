@@ -6,4 +6,5 @@
     <string name="game_list_is_empty_message">Game list is empty</string>
     <string name="text_add_new_game">Add new game</string>
     <string name="text_explore_features">Explore features</string>
+    <string name="text_loading">loading..</string>
 </resources>
