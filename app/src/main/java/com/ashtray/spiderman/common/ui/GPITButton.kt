@@ -27,7 +27,8 @@ class GPITButton(context: Context, attrs: AttributeSet) : RelativeLayout(context
         2 to R.drawable.group_item_vertical_last_card_bg,
         3 to R.drawable.group_item_horizontal_first_card_bg,
         4 to R.drawable.group_item_middle_card_bg,
-        5 to R.drawable.group_item_horizontal_last_card_bg
+        5 to R.drawable.group_item_horizontal_last_card_bg,
+        6 to R.drawable.group_item_single_card_bg
     )
 
     init {

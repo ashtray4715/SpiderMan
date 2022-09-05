@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/on_boarding_divider_side_margin"
+        android:layout_marginEnd="@dimen/on_boarding_divider_side_margin"
+        android:alpha="0.1"
+        android:background="@color/colorAccent" />
+
+</RelativeLayout>

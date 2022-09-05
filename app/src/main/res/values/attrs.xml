@@ -20,6 +20,7 @@
             <enum name="horizontal_first" value="3" />
             <enum name="horizontal_middle" value="4" />
             <enum name="horizontal_last" value="5" />
+            <enum name="single_item" value="6" />
         </attr>
     </declare-styleable>
 </resources>

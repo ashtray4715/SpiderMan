@@ -7,4 +7,13 @@
     <string name="text_add_new_game">Add new game</string>
     <string name="text_explore_features">Explore features</string>
     <string name="text_loading">loading..</string>
+
+    <!-- on boarding fragment -->
+    <string name="on_boarding_title1">Available for 3,4,5 player</string>
+    <string name="on_boarding_title2">Get notifications</string>
+    <string name="on_boarding_title3">Automatic last score</string>
+    <string name="on_boarding_description1">Use all the features and control your spades card game with this app when the player count is 3, 4 or 5. \n\nGenerally we play this game between 4 players. but we have added option to control the game when the total player count will be 3, 4 or 5.</string>
+    <string name="on_boarding_description2">Get notified when someone reached the final target score. \n\nTo get these notification, turn on the notify option while adding a new game. By default these options will be turned ON.</string>
+    <string name="on_boarding_description3">This app can automatically calculate the score of the last player, while adding score in each round. \n\nLets say, total round score is 360, first player got 100, second player got 100, and fourth player got the remaining points. This app can automatically add the remaining point to respective player.</string>
+
 </resources>

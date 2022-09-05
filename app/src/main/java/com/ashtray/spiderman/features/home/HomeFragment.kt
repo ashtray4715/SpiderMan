@@ -76,8 +76,12 @@ class HomeFragment : GPFragment() {
     }
 
     private fun handleExploreFeatureMenuClicked() {
-        log.d("handle explore feature menu clicked")
-        showToastMessage("explore feature")
+        viewLifeCycleOwnerScope?.launch {
+            changeFragment(
+                fragment = factory.getOnBoardingFragment(false),
+                transactionType = TransactionType.ADD_FRAGMENT
+            )
+        }
     }
 
     private fun handleSettingsMenuClicked() {

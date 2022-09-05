@@ -42,4 +42,9 @@ object GPConst {
             }
         }
     }
+
+    /* On boarding item type*/
+    const val ON_BOARDING_ITEM_TYPE_APP_INFO = 1
+    const val ON_BOARDING_ITEM_TYPE_FEATURE = 2
+    const val ON_BOARDING_ITEM_TYPE_DIVIDER = 3
 }
