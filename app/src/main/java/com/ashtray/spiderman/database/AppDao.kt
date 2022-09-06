@@ -11,6 +11,9 @@ interface AppDao {
     @Query("SELECT * FROM game_table")
     fun getAllTheGameEntities(): LiveData<List<GameEntity>?>
 
+    @Query("SELECT * FROM game_table WHERE game_id=:gameId")
+    fun getGameEntity(gameId: Long): GameEntity?
+
     /* INSERT QUERIES*/
     @Insert
     fun insertGameEntity(entity: GameEntity)

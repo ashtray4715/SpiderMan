@@ -23,4 +23,5 @@
             <enum name="single_item" value="6" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="GPAddScoreCallItem"/>
 </resources>

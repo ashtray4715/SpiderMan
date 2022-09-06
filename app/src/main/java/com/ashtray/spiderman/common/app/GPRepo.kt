@@ -18,4 +18,10 @@ class GPRepo @Inject constructor(val dao: AppDao) {
     fun getAllTheGameEntities(): LiveData<List<GameEntity>?> {
         return dao.getAllTheGameEntities()
     }
+
+    suspend fun getGameEntity(gameId: Long): GameEntity? {
+        return withContext(Dispatchers.IO) {
+            dao.getGameEntity(gameId)
+        }
+    }
 }
