@@ -110,5 +110,21 @@ class HomeFragment : GPFragment() {
 
     private fun openGameDetailsFragment(position: Int) {
         log.d("open game details fragment $position")
+        homeListAdapter?.getGameEntity(position)?.let { gameEntity ->
+            when (gameEntity.totalPlayer) {
+                3 -> changeFragment(
+                    factory.getGameDetails3PFragment(gameEntity.gameId),
+                    TransactionType.ADD_FRAGMENT
+                )
+                4 -> changeFragment(
+                    factory.getGameDetails4PFragment(gameEntity.gameId),
+                    TransactionType.ADD_FRAGMENT
+                )
+                5 -> changeFragment(
+                    factory.getGameDetails5PFragment(gameEntity.gameId),
+                    TransactionType.ADD_FRAGMENT
+                )
+            }
+        }
     }
 }

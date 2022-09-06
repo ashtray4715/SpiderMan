@@ -5,6 +5,7 @@ import android.text.Spanned
 
 object GPConst {
     /* fragment to fragment passing keys */
+    const val PK_SELECTED_GAME_ID = "selected_game_id"
     const val PK_IS_FROM_SPLASH_FRAGMENT = "is_from_splash_fragment"
 
     /* shared preference file name*/

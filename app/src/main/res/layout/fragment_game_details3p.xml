@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ashtray.spiderman.features.details.GameDetailsViewModel" />
+            type="com.ashtray.spiderman.features.details.GameDetails3PViewModel" />
     </data>
 
     <RelativeLayout
