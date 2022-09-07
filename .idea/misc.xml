@@ -10,6 +10,7 @@
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/card_background_non_clickable_rounded.xml" value="0.2785" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/circle_stroke_background.xml" value="0.285" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/common_dialog_background.xml" value="0.2695" />
+        <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/floating_button_background.xml" value="0.22" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/group_item_horizontal_first_card_bg.xml" value="0.2605" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/group_item_horizontal_last_card_bg.xml" value="0.2605" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/drawable/group_item_horizontal_middle_card_bg.xml" value="0.2605" />
@@ -44,12 +45,13 @@
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_game_details3p.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_game_details4p.xml" value="0.1" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_game_details5p.xml" value="0.1" />
-        <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_home.xml" value="0.365625" />
+        <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_home.xml" value="0.30739632321504917" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_onboarding.xml" value="0.365625" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/fragment_splash_screen.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_action_bar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_add_score_call_item.xml" value="0.365625" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_final_score_call_item.xml" value="0.365625" />
+        <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_floating_action.xml" value="0.365625" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_it_button.xml" value="0.67" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/gp_custom_menu_title.xml" value="0.365625" />
         <entry key="..\:/Users/GOBINDA/AndroidStudioProjects/SpiderMan/app/src/main/res/layout/layout_on_boarding_app_info_item.xml" value="0.365625" />

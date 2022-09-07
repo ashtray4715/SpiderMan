@@ -20,55 +20,13 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_game_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/option_buttons"
+            android:layout_height="match_parent"
             android:layout_below="@id/action_bar" />
-
-        <LinearLayout
-            android:id="@+id/option_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:divider="@drawable/divider_for_horizontal_linearlayout"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            android:weightSum="3">
-
-            <com.ashtray.spiderman.common.ui.GPITButton
-                android:id="@+id/more_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:itb_background="horizontal_first"
-                app:itb_icon="@drawable/ic_menu_store"
-                app:itb_text="More" />
-
-            <com.ashtray.spiderman.common.ui.GPITButton
-                android:id="@+id/features_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:itb_background="horizontal_middle"
-                app:itb_icon="@drawable/ic_menu_explore"
-                app:itb_text="Features" />
-
-            <com.ashtray.spiderman.common.ui.GPITButton
-                android:id="@+id/add_game_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:itb_background="horizontal_last"
-                app:itb_icon="@drawable/ic_menu_add"
-                app:itb_text="New Game" />
-
-        </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/empty_game_list_view"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_above="@id/option_buttons"
+            android:layout_height="match_parent"
             android:layout_below="@id/action_bar"
             android:layout_centerInParent="true">
 
@@ -88,6 +46,17 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
+
+        <com.ashtray.spiderman.common.ui.GPFloatingAction
+            android:id="@+id/floating_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp" />
 
     </RelativeLayout>
 

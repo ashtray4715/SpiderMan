@@ -70,9 +70,7 @@ class HomeFragment : GPFragment() {
         }
         binding.actionBar.setMenuListener { handleAddGameMenuClicked() }
         binding.actionBar.setBackListener { handleSettingsMenuClicked() }
-        binding.addGameButton.setCustomClickListener { handleAddGameMenuClicked() }
-        binding.featuresButton.setCustomClickListener { handleExploreFeatureMenuClicked() }
-        binding.moreButton.setCustomClickListener { handleSettingsMenuClicked() }
+        binding.floatingAction.setCustomClickListener { handleAddGameMenuClicked() }
     }
 
     private fun handleExploreFeatureMenuClicked() {

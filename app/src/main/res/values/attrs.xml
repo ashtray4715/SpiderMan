@@ -23,5 +23,8 @@
             <enum name="single_item" value="6" />
         </attr>
     </declare-styleable>
-    <declare-styleable name="GPAddScoreCallItem"/>
+    <declare-styleable name="GPAddScoreCallItem" />
+    <declare-styleable name="GPFloatingAction">
+        <attr name="floating_img" format="string" />
+    </declare-styleable>
 </resources>
