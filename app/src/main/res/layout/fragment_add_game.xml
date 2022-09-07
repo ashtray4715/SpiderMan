@@ -26,9 +26,9 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/option_buttons"
+            android:layout_height="match_parent"
             android:layout_below="@id/action_bar"
+            android:layout_marginTop="-3dp"
             tools:ignore="UselessParent">
 
             <LinearLayout
@@ -140,48 +140,21 @@
 
                 </LinearLayout>
 
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="@dimen/global_margin_start_end"
-                        android:layout_marginEnd="@dimen/global_margin_start_end"
-                        android:layout_toStartOf="@id/checkbox_notify_final_target"
-                        android:alpha="@dimen/add_game_input_title_alpha"
-                        android:paddingStart="@dimen/add_game_input_title_padding_start"
-                        android:paddingTop="@dimen/add_game_input_title_padding_top"
-                        android:paddingEnd="@dimen/add_game_input_title_padding_end"
-                        android:paddingBottom="@dimen/add_game_input_title_padding_bottom"
-                        android:text="Final target score ?"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/add_game_input_title_text_size"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
-
-                    <CheckBox
-                        android:id="@+id/checkbox_notify_final_target"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="@dimen/global_margin_start_end"
-                        android:layout_marginEnd="@dimen/global_margin_start_end"
-                        android:alpha="@dimen/add_game_input_title_alpha"
-                        android:checked="true"
-                        android:paddingStart="@dimen/add_game_input_title_padding_start"
-                        android:paddingEnd="@dimen/add_game_input_title_padding_end"
-                        android:text="Noti?"
-                        android:textColor="@color/colorAccent"
-                        android:textSize="@dimen/add_game_input_title_text_size"
-                        android:textStyle="bold"
-                        android:theme="@style/NotifyCheckBoxStyle"
-                        tools:ignore="HardcodedText" />
-
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/global_margin_start_end"
+                    android:layout_marginEnd="@dimen/global_margin_start_end"
+                    android:alpha="@dimen/add_game_input_title_alpha"
+                    android:paddingStart="@dimen/add_game_input_title_padding_start"
+                    android:paddingTop="@dimen/add_game_input_title_padding_top"
+                    android:paddingEnd="@dimen/add_game_input_title_padding_end"
+                    android:paddingBottom="@dimen/add_game_input_title_padding_bottom"
+                    android:text="Final target score ?"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/add_game_input_title_text_size"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <EditText
                     android:id="@+id/edit_text_final_target_score"
@@ -201,6 +174,25 @@
                     android:textColorHint="@color/colorAccent_light_version"
                     android:textSize="@dimen/add_game_input_value_text_size"
                     tools:ignore="HardcodedText,LabelFor" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_notify_final_target"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/global_margin_start_end"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/global_margin_start_end"
+                    android:layout_marginBottom="0dp"
+                    android:alpha="@dimen/add_game_input_title_alpha"
+                    android:checked="true"
+                    android:paddingStart="@dimen/add_game_input_title_padding_start"
+                    android:paddingEnd="@dimen/add_game_input_title_padding_end"
+                    android:text="Target notification ?"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/add_game_input_title_text_size"
+                    android:textStyle="bold"
+                    android:theme="@style/NotifyCheckBoxStyle"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -323,38 +315,40 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/option_buttons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal"
+                    android:showDividers="middle"
+                    android:weightSum="2">
+
+                    <com.ashtray.spiderman.common.ui.GPITButton
+                        android:id="@+id/cancel_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="2.5dp"
+                        android:layout_weight="1"
+                        app:itb_icon="@drawable/ic_menu_cancel"
+                        app:itb_text="Cancel" />
+
+                    <com.ashtray.spiderman.common.ui.GPITButton
+                        android:id="@+id/save_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2.5dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_weight="1"
+                        app:itb_icon="@drawable/ic_menu_save"
+                        app:itb_text="Save" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/option_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:divider="@drawable/divider_for_horizontal_linearlayout"
-            android:orientation="horizontal"
-            android:showDividers="middle"
-            android:weightSum="2">
-
-            <com.ashtray.spiderman.common.ui.GPITButton
-                android:id="@+id/cancel_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:itb_icon="@drawable/ic_menu_cancel"
-                app:itb_text="Cancel" />
-
-            <com.ashtray.spiderman.common.ui.GPITButton
-                android:id="@+id/save_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:itb_icon="@drawable/ic_menu_save"
-                app:itb_text="Save" />
-
-        </LinearLayout>
 
     </RelativeLayout>
 
