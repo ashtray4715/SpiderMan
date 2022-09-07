@@ -15,7 +15,7 @@
         android:layout_centerInParent="true"
         android:clickable="false"
         android:src="@drawable/ic_menu_add"
-        app:tint="@color/activity_background_default"
+        app:tint="@color/single_button_tint"
         tools:ignore="ContentDescription" />
 
 </RelativeLayout>

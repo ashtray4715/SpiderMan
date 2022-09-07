@@ -21,16 +21,6 @@ class GPITButton(context: Context, attrs: AttributeSet) : RelativeLayout(context
     private var imageView: ImageView? = null
     private var textView: TextView? = null
 
-    private val drawableMap = mapOf(
-        0 to R.drawable.group_item_vertical_first_card_bg,
-        1 to R.drawable.group_item_middle_card_bg,
-        2 to R.drawable.group_item_vertical_last_card_bg,
-        3 to R.drawable.group_item_horizontal_first_card_bg,
-        4 to R.drawable.group_item_middle_card_bg,
-        5 to R.drawable.group_item_horizontal_last_card_bg,
-        6 to R.drawable.group_item_single_card_bg
-    )
-
     init {
         setViewAndInitializeComponents(context)
         addHandlerAndListenersWhereNecessary()
@@ -66,12 +56,6 @@ class GPITButton(context: Context, attrs: AttributeSet) : RelativeLayout(context
                         val resId0 = typedArray.getResourceId(currentAttribute, -1)
                         val drawable0 = ContextCompat.getDrawable(context, resId0)
                         imageView?.setImageDrawable(drawable0)
-                    }
-                    R.styleable.GPITButton_itb_background -> {
-                        val defDrawable = R.drawable.group_item_middle_card_bg
-                        val input = typedArray.getInt(currentAttribute, 1)
-                        val drawable = drawableMap[input] ?: defDrawable
-                        globalView?.background = ContextCompat.getDrawable(context, drawable)
                     }
                 }
             }

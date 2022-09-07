@@ -11,5 +11,8 @@
     <color name="colorPrimaryDark">@color/activity_background_default</color>
     <color name="colorAccent">@color/activity_background_default_anti</color>
     <color name="colorAccent_light_version">@color/activity_background_default_anti_light_version</color>
+    <color name="single_button_bg">#00875F</color>
+    <color name="single_button_ripple">#00674F</color>
+    <color name="single_button_tint">@color/activity_background_default</color>
 
 </resources>

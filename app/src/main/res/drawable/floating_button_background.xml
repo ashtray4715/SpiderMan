@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#00674F">
+    android:color="@color/single_button_ripple">
     <item>
         <shape android:shape="oval">
-            <solid android:color="#00875F" />
+            <solid android:color="@color/single_button_bg" />
         </shape>
     </item>
 </ripple>

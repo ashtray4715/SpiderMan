@@ -343,7 +343,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:itb_background="horizontal_first"
                 app:itb_icon="@drawable/ic_menu_cancel"
                 app:itb_text="Cancel" />
 
@@ -352,7 +351,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:itb_background="horizontal_last"
                 app:itb_icon="@drawable/ic_menu_save"
                 app:itb_text="Save" />
 
