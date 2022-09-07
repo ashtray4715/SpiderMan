@@ -10,7 +10,7 @@ import com.ashtray.spiderman.BuildConfig
 import com.ashtray.spiderman.R
 import com.ashtray.spiderman.common.app.GPFactory
 import com.ashtray.spiderman.common.app.GPSharedPref
-import com.ashtray.spiderman.common.helpers.ArgumentScanner
+import com.ashtray.spiderman.common.helpers.ArgScanner
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.databinding.FragmentOnboardingBinding
@@ -50,7 +50,7 @@ class OnBoardingFragment : GPFragment() {
             mContext = context,
             onBoardingItems = generateOnBoardingItems()
         )
-        isFromSplashFragment = ArgumentScanner(arguments).isFromSplashFragment()
+        isFromSplashFragment = ArgScanner(arguments).isFromSplashFragment()
         return binding.root
     }
 

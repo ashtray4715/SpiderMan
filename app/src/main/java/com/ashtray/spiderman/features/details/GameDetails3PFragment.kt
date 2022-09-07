@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.ashtray.spiderman.common.helpers.ArgumentScanner
+import com.ashtray.spiderman.common.helpers.ArgScanner
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.database.GameEntity
@@ -46,7 +46,7 @@ class GameDetails3PFragment : GPFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifeCycleOwnerScope?.launch(Dispatchers.Main) {
-            val gameIdNow = ArgumentScanner(arguments).getGameId()
+            val gameIdNow = ArgScanner(arguments).getGameId()
             gameEntity = viewModel.getGameEntity(gameIdNow)
         }
 
