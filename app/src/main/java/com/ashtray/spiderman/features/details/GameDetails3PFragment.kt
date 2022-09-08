@@ -10,6 +10,7 @@ import com.ashtray.spiderman.common.helpers.ArgScanner
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
 import com.ashtray.spiderman.database.GameEntity
+import com.ashtray.spiderman.database.ScoreEntity
 import com.ashtray.spiderman.databinding.FragmentGameDetails3pBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +24,15 @@ class GameDetails3PFragment : GPFragment() {
     private val binding get() = _binding!!
 
     private var gameEntity: GameEntity? = null
+
+    private val startCallCallBack = object : StartCall3PDialog.CallBacks {
+        override fun onSaveBtnPressed(scoreEntity: ScoreEntity) {
+            viewLifeCycleOwnerScope?.launch {
+                viewModel.insertNewScore(scoreEntity)
+                showToastMessage("Saved successfully")
+            }
+        }
+    }
 
     override val log = GPLog("GameDetails3PFragment")
 
@@ -64,8 +74,8 @@ class GameDetails3PFragment : GPFragment() {
         viewLifeCycleOwnerScope?.launch {
             withContext(Dispatchers.Main) {
                 context?.let { mContext ->
-                    AddScoreCall3PDialog(mContext, mGameEntity).apply {
-                        //setCallBacks(addScoreDialogCB)
+                    StartCall3PDialog(mContext, mGameEntity).apply {
+                        setCallBacks(startCallCallBack)
                         //setOnShowListener(adLoaderOnDialogShown)
                         //setOnDismissListener(adRefresherOnDialogExit)
                         show()

@@ -2,13 +2,13 @@ package com.ashtray.spiderman.features.details
 
 import android.content.Context
 import com.ashtray.spiderman.R
-import com.ashtray.spiderman.common.ui.GPAddScoreCallItem
+import com.ashtray.spiderman.common.ui.GPStartCallItem
 import com.ashtray.spiderman.common.ui.GPDialog
 import com.ashtray.spiderman.common.ui.GPITButton
 import com.ashtray.spiderman.database.GameEntity
 import com.ashtray.spiderman.database.ScoreEntity
 
-class AddScoreCall3PDialog(
+class StartCall3PDialog(
     context: Context,
     val gameEntity: GameEntity
 ) : GPDialog(context) {
@@ -17,9 +17,9 @@ class AddScoreCall3PDialog(
         fun onSaveBtnPressed(scoreEntity: ScoreEntity)
     }
 
-    private lateinit var item1: GPAddScoreCallItem
-    private lateinit var item2: GPAddScoreCallItem
-    private lateinit var item3: GPAddScoreCallItem
+    private lateinit var item1: GPStartCallItem
+    private lateinit var item2: GPStartCallItem
+    private lateinit var item3: GPStartCallItem
 
     private lateinit var tvSaveBtn: GPITButton
     private lateinit var tvCancelBtn: GPITButton
@@ -31,7 +31,7 @@ class AddScoreCall3PDialog(
     }
 
     override fun getLayoutId(): Int {
-        return R.layout.dialog_add_score_call_3p
+        return R.layout.dialog_start_call_3p
     }
 
     override fun initializeComponents() {
@@ -54,6 +54,15 @@ class AddScoreCall3PDialog(
     }
 
     private fun handleSaveButtonPressed() {
-
+        callBacks?.onSaveBtnPressed(
+            ScoreEntity(
+                gameId = gameEntity.gameId,
+                score1 = item1.getScore(),
+                score2 = item2.getScore(),
+                score3 = item3.getScore(),
+                isFinal = false
+            )
+        )
+        dismiss()
     }
 }

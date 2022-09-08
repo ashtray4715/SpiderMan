@@ -6,7 +6,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.ashtray.spiderman.R
 
-class GPAddScoreCallItem(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
+class GPStartCallItem(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
 
     private var minusButton: TextView? = null
     private var plusButton: TextView? = null
@@ -41,7 +41,7 @@ class GPAddScoreCallItem(context: Context, attrs: AttributeSet) : RelativeLayout
     }
 
     private fun setViewAndInitializeComponents(context: Context) {
-        val cView = inflate(context, R.layout.gp_custom_add_score_call_item, this)
+        val cView = inflate(context, R.layout.gp_custom_start_call_item, this)
         minusButton = cView.findViewById(R.id.minus_button)
         plusButton = cView.findViewById(R.id.plus_button)
         tvScore = cView.findViewById(R.id.tv_score)

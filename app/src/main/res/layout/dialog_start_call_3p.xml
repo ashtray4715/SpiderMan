@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,25 +18,25 @@
             android:gravity="center"
             android:paddingTop="20dp"
             android:paddingBottom="15dp"
-            android:text="Add score"
+            android:text="Start call"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/global_dialog_title_text_size"
             android:textStyle="bold"
             tools:ignore="HardcodedText" />
 
-        <com.ashtray.spiderman.common.ui.GPAddScoreCallItem
+        <com.ashtray.spiderman.common.ui.GPStartCallItem
             android:id="@+id/item1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
-        <com.ashtray.spiderman.common.ui.GPAddScoreCallItem
+        <com.ashtray.spiderman.common.ui.GPStartCallItem
             android:id="@+id/item2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
-        <com.ashtray.spiderman.common.ui.GPAddScoreCallItem
+        <com.ashtray.spiderman.common.ui.GPStartCallItem
             android:id="@+id/item3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -46,7 +45,10 @@
             android:id="@+id/option_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="10dp"
             android:divider="@drawable/divider_for_horizontal_linearlayout"
             android:orientation="horizontal"
             android:showDividers="middle"
@@ -56,6 +58,8 @@
                 android:id="@+id/cancel_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 app:itb_icon="@drawable/ic_menu_cancel"
                 app:itb_text="Cancel" />
