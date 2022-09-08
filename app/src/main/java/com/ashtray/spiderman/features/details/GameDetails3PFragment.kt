@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import com.ashtray.spiderman.common.helpers.ArgScanner
 import com.ashtray.spiderman.common.helpers.GPLog
 import com.ashtray.spiderman.common.ui.GPFragment
-import com.ashtray.spiderman.database.GameEntity
+import com.ashtray.spiderman.database.GameWithScores
 import com.ashtray.spiderman.database.ScoreEntity
 import com.ashtray.spiderman.databinding.FragmentGameDetails3pBinding
 import kotlinx.coroutines.Dispatchers
@@ -23,12 +23,12 @@ class GameDetails3PFragment : GPFragment() {
     private var _binding: FragmentGameDetails3pBinding? = null
     private val binding get() = _binding!!
 
-    private var gameEntity: GameEntity? = null
+    private var gameWithScores: GameWithScores? = null
 
     private val startCallCallBack = object : StartCall3PDialog.CallBacks {
         override fun onSaveBtnPressed(scoreEntity: ScoreEntity) {
             viewLifeCycleOwnerScope?.launch {
-                viewModel.insertNewScore(scoreEntity)
+                viewModel.insertScoreEntity(scoreEntity)
                 showToastMessage("Saved successfully")
             }
         }
@@ -55,9 +55,14 @@ class GameDetails3PFragment : GPFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewLifeCycleOwnerScope?.launch(Dispatchers.Main) {
-            val gameIdNow = ArgScanner(arguments).getGameId()
-            gameEntity = viewModel.getGameEntity(gameIdNow)
+        viewModel.getSingleGameWithScores(
+            ArgScanner(arguments).getGameId()
+        ).observe(viewLifecycleOwner) {
+            it?.let { mGameWithScores ->
+                gameWithScores = mGameWithScores
+                log.d("game_id = ${mGameWithScores.gameEntity.gameId}")
+                log.d("score_size = ${mGameWithScores.scoreEntities.size}")
+            }
         }
 
         binding.actionBar.setMenuListener { handleAddNewScoreMenuPressed() }
@@ -70,7 +75,7 @@ class GameDetails3PFragment : GPFragment() {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     fun handleAddNewScoreMenuPressed() {
-        val mGameEntity = gameEntity ?: return
+        val mGameEntity = gameWithScores?.gameEntity ?: return
         viewLifeCycleOwnerScope?.launch {
             withContext(Dispatchers.Main) {
                 context?.let { mContext ->

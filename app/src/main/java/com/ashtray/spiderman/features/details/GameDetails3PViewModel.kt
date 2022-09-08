@@ -1,8 +1,9 @@
 package com.ashtray.spiderman.features.details
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.ashtray.spiderman.common.app.GPRepo
-import com.ashtray.spiderman.database.GameEntity
+import com.ashtray.spiderman.database.GameWithScores
 import com.ashtray.spiderman.database.ScoreEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -11,11 +12,12 @@ import javax.inject.Inject
 class GameDetails3PViewModel @Inject constructor(
     private val repository: GPRepo
 ) : ViewModel() {
-    suspend fun getGameEntity(gameId: Long): GameEntity? {
-        return repository.getGameEntity(gameId)
+
+    fun getSingleGameWithScores(gameId: Long): LiveData<GameWithScores?> {
+        return repository.getSingleGameWithScores(gameId)
     }
 
-    suspend fun insertNewScore(scoreEntity: ScoreEntity) {
-        repository.insertNewScore(scoreEntity)
+    suspend fun insertScoreEntity(scoreEntity: ScoreEntity) {
+        repository.insertScoreEntity(scoreEntity)
     }
 }

@@ -11,12 +11,15 @@ interface AppDao {
     @Query("SELECT * FROM game_table")
     fun getAllTheGameEntities(): LiveData<List<GameEntity>?>
 
-    @Query("SELECT * FROM game_table WHERE game_id=:gameId")
-    fun getGameEntity(gameId: Long): GameEntity?
+    @Query("SELECT * FROM game_table WHERE game_id=:gameId LIMIT 1")
+    fun getSingleGameWithScores(gameId: Long): LiveData<GameWithScores?>
 
     /* INSERT QUERIES*/
     @Insert
     fun insertGameEntity(entity: GameEntity)
+
+    @Insert
+    fun insertScoreEntity(entity: ScoreEntity)
 
     /* DELETE QUERIES*/
 

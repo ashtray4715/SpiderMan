@@ -1,8 +1,10 @@
 package com.ashtray.spiderman.database
 
 import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+@Entity(tableName = "score_info_table")
 data class ScoreEntity(
     @ColumnInfo(name = "score_id")
     @PrimaryKey(autoGenerate = true)
