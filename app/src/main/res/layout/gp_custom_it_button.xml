@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/single_button_background"
-    android:padding="10dp">
+    android:padding="12.5dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
